@@ -1,0 +1,67 @@
+type User {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  mbtiType: String!
+  isVerified: Boolean!
+  nickName: String!
+  gender: Boolean
+}
+
+type Query {
+  getUser: GetUserResponse!
+}
+
+type Mutation {
+  signin(email: String!, password: String!): SignInResponse!
+
+  signup(
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+    phoneNumber: String!
+    mbtiType: String!
+    isVerified: Boolean!
+    nickName: String
+    gender: Boolean
+  ): SignUpResponse!
+
+  updateUser(
+    firstName: String
+    lastName: String
+    email: String
+    password: String
+    phoneNumber: String
+    mbtiType: String
+    nickName: String
+  ): UpdateUserResponse!
+}
+
+type GetUserResponse {
+  ok: Boolean!
+  user: User!
+  error: String
+}
+
+type UpdateUserResponse {
+  ok: Boolean!
+  user: User
+  error: String
+}
+
+type SignInResponse {
+  ok: Boolean!
+  token: String
+  error: String
+  user: User
+}
+
+type SignUpResponse {
+  ok: Boolean!
+  token: String
+  error: String
+}
