@@ -36,7 +36,7 @@ const resolvers = {
                 isVerified,
                 nickName,
                 gender,
-            }).save();
+            });
             return{
                 ok: true,
                 token: "jwttoken",

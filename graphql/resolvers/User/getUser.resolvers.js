@@ -18,7 +18,7 @@ const resolvers = {
             } else{
                 return{
                     ok: false,
-                    user: [],
+                    user,
                     error: 'Could not return the user'
                 };
             }

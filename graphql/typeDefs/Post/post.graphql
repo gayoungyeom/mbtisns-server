@@ -1,0 +1,49 @@
+type Post {
+  id: Int!
+  boardType: String!
+  title: String!
+  contentText: String!
+  like: Int!
+}
+
+type Query {
+  getPosts: GetPostsResponse!
+}
+
+type Mutation {
+  addPost(
+    boardType: String!
+    title: String!
+    contentText: String!
+  ): AddPostResponse!
+
+  editPost(
+    boardType: String!
+    title: String!
+    contentText: String!
+  ): EditPostResponse!
+
+  deletePost(id: Int!): DeletePostResponse!
+}
+
+type GetPostsResponse {
+  ok: Boolean!
+  posts: [Post]
+  error: String
+}
+
+type AddPostResponse {
+  ok: Boolean!
+  post: Post
+  error: String
+}
+
+type EditPostResponse {
+  ok: Boolean!
+  error: String
+}
+
+type DeletePostResponse {
+  ok: Boolean!
+  error: String
+}

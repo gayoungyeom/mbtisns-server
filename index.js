@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const { ApolloServer, gql} = require('apollo-server-express');
 const express = require('express');
-const { sendMessage } = require('./sendMessage');
+// const { sendMessage } = require('./sendMessage');
 
 const app = express();
 const port = 3000;
@@ -28,7 +28,7 @@ models.sequelize.sync().then( () => {
   app.listen(port, () => {
       console.log(`app is running at http://localhost:${port}`);
   });
-  sendMessage('01057584889', '45678');
+  // sendMessage('01057584889', '45678');
 }).catch(err => {
   console.log("Unable to connect to the database:");
   console.log(err);
