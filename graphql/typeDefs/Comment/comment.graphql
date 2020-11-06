@@ -1,0 +1,38 @@
+type Comment {
+  id: Int!
+  text: String!
+}
+
+type Query {
+  getComment(id: Int!): GetCommentResponse!
+}
+
+type Mutation {
+  createComment(id: Int!, text: String!): CreateCommentResponse!
+
+  updateComment(id: Int!, text: String!): UpdateCommentResponse!
+
+  deleteComment(id: Int!): DeleteCommentResponse!
+}
+
+type GetCommentResponse {
+  ok: Boolean!
+  comment: Comment
+  error: String
+}
+
+type CreateCommentResponse {
+  ok: Boolean!
+  comment: Comment
+  error: String
+}
+
+type UpdateCommentResponse {
+  ok: Boolean!
+  error: String
+}
+
+type DeleteCommentResponse {
+  ok: Boolean!
+  error: String
+}

@@ -23,7 +23,7 @@ const resolvers = {
                 return{
                     ok: false,
                     post: null,
-                    error: null
+                    error: "Could not add post",
                 };
             }
         }
