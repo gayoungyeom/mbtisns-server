@@ -3,6 +3,7 @@ const db = require('../../../models');
 const resolvers = {
     Mutation: {
         updateUser: async(_, {
+            id,
             firstName,
             lastName,
             email,
@@ -13,9 +14,10 @@ const resolvers = {
         }) => {
             const user = await db.User.findOne({
                 where: {
-                    id: user.id
+                    id,
                 }
             });
+            
             if(user) {
                 const updatedUser = user.update({
                     firstName,

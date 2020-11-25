@@ -15,7 +15,7 @@ const resolvers = {
         }) => {
             const existingUser = await db.User.findOne({
                 where: {
-                    email: signup.email
+                    email,
                 }
             });
             if(existingUser) {
@@ -37,11 +37,19 @@ const resolvers = {
                 nickName,
                 gender,
             });
-            return{
-                ok: true,
-                token: "jwttoken",
-                error: null
-            };
+            if(newUser) {
+                return{
+                    ok: true,
+                    token: "jwttoken",
+                    error: null
+                };
+            } else {
+                return {
+                    ok: false,
+                    token: null,
+                    error: "Could not signup"
+                };
+            }
         }
     }
 };

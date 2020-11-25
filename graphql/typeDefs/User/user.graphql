@@ -12,7 +12,7 @@ type User {
 }
 
 type Query {
-  getUser: GetUserResponse!
+  getUser(id: Int): GetUserResponse!
 }
 
 type Mutation {
@@ -31,6 +31,7 @@ type Mutation {
   ): SignUpResponse!
 
   updateUser(
+    id: Int!
     firstName: String
     lastName: String
     email: String

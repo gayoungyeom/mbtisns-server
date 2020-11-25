@@ -24,10 +24,19 @@ const resolvers = {
             }
 
             //pw 검증
-            const validPassword = await db.User.comparePassword(
-                password,
-                user.password
-            );
+            // const validPassword = await db.User.comparePassword(
+            //     password,
+            //     user.password
+            // );
+            
+            //임시 pw 확인
+            const validPassword = await db.User.findOne({
+                where: {
+                    email,
+                    password,
+                }
+            });
+
             if(!validPassword){
                 return{
                     ok: false,
